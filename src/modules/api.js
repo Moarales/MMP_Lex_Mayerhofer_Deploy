@@ -1,4 +1,12 @@
+const mainUrl = 'https://opentdb.com/api.php?';
 
+export const getData = ({ amount = 10, difficulty = 'easy' }) => {
+  const url = `${mainUrl}amount=${amount}&difficulty=${difficulty}&type=multiple`;
+
+  return fetch(url)
+    .then((response) => response.json())
+    .then((myJson) => myJson.results);
+};
 
 
 export default getData;
