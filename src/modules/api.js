@@ -18,7 +18,7 @@ var SpotifyWebApi = require('spotify-web-api-node');
 var spotifyApi = new SpotifyWebApi({
   clientId: 'f4c519aa648d49aaa963ca6a6b439f07',
   clientSecret: '94305db1f22040c0b1c7a1be23c73a27',
-  redirectUri: 'https://epic-perlman-aed4e2.netlify.com',
+  redirectUri: 'https://locally.netlify.com/',
 });
 
 spotifyApi.setRefreshToken("AQDAsLHmdFuhA-5oGqlMZU7gqzGECdRAD4XUrDU_1Y4P_l8SvxmfrJNzlqM4pmL-2LoeAPwgjNBj5SeJwBH9KRHsX2rkBJaykA9n4Ph5IErcES2F68U8IbjCXDWVuqIMrig"); //localLy Refresh Tokken
