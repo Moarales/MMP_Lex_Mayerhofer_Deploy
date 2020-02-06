@@ -1,0 +1,18 @@
+image: node:11.9
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  tags:
+    - node:11.9
+  script:
+    - npm i
+    - npm run build
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 days
+  only:
+    - master

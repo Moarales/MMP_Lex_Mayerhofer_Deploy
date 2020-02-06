@@ -1,0 +1,48 @@
+.btn{
+    color: inherit;
+    background-color: $base-orange;
+    border: 0.1rem solid $base-orange;
+    border-radius: 1.7rem;
+    padding: .5rem 2.8rem;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    font-family: inherit;
+    font-size: 17pt;
+    
+    &:hover{
+        color: $base-orange;
+        background-color: transparent;
+    }
+
+    &--second{
+      background-color: $base-buttonSecond;
+      border: 0.1rem solid $base-buttonSecond;
+      
+      &:hover{
+        color: $base-buttonSecond;
+      }
+  }
+    
+}
+
+
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: .5rem;
+    .input{
+      margin:.5rem;
+    }
+    p{
+      margin: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    h2{
+      color: $base-white;
+      margin-top: 0;
+    }
+  }
+                    

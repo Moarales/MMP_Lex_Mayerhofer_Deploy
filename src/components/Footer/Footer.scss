@@ -1,0 +1,24 @@
+
+footer {
+    background: #ff5500;
+    // height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5%;
+    height: 10%;
+    h2 {
+      color: #211e1e;  
+      margin-top: 0;
+      padding-top: 20px;
+      margin-right: 10px;
+      font-size: 1.5vw;
+    }
+  }
+  
+  @media only screen and (max-width: 1016px) {
+    footer {
+      h2{
+        font-size:20px;
+      }
+    }
+  }

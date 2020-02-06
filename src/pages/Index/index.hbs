@@ -1,0 +1,167 @@
+{{> ../components/Hamburger/Hamburger }}
+<div class="index-page">
+  {{#if loading}}
+     <div class="loader"></div> 
+  {{/if}}
+  {{#unless loading}}
+  <section id="player">
+    <h2>Now Playing: {{CurrentSong}} - {{Artist}}</h2>
+    <div class="player__coverImages">
+
+
+
+      {{!-- Use this with Handlebars: --}}
+
+      <img class="player__coverImages__prevImg borderOrange" src="{{previousTrackCoverSrc}}"
+        alt="Cover of {{previousTrack}}">
+      <img class="player__coverImages__currentImg borderOrange" src="{{currentTrackCoverSrc}}"
+        alt="Cover of {{currentTrack}}">
+      <img class="player__coverImages__nextImg borderOrange" src="{{nextTrackCoverSrc}}" alt="Cover of {{nextTrack}}">
+
+
+      {{!-- <img class="player__coverImages__prevImg borderOrange"
+        src="https://i.scdn.co/image/d364650648016d622e5550c64152401d6c99fcff" alt="Cover of {{previousTrack}}">
+      <img class="player__coverImages__currentImg borderOrange"
+        src="https://i.scdn.co/image/b288c360a701c0848b09e705dd473ff8820bd720" alt="Cover of {{currentTrack}}">
+      <img class="player__coverImages__nextImg borderOrange"
+        src="https://i.scdn.co/image/eddd55c8766187b64f78695ec241ba1a58ea3adf" alt="Cover of {{nextTrack}}"> --}}
+    </div>
+    <section class="controls">
+
+      {{!-- 
+      <div id="Progress_Status">
+        <div id="myprogressBar"></div>
+      </div> --}}
+      {{!--  IIFRAME
+
+      <div>
+        <iframe id="myIFrame" class="borderOrange" src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
+          height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div> --}}
+
+      <h2 class="white"><span id="currentTime">{{CurrentSecond}}</span>/{{CurrentSongLength}}</h2>
+
+      {{!-- Requires Spotify Premium --}}
+      <div class="player__controls">
+        <svg id="backButton" role="button" class="player__forwardBackButton" viewBox="0 0 117 85" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M31.4131 42.5L95.1631 5.69392L95.1631 79.3061L31.4131 42.5Z" fill="#FF5500" />
+          <path d="M0 42.5L63.75 5.69392L63.75 79.3061L0 42.5Z" fill="#FF5500" />
+        </svg>
+
+        <svg id="playButton" role="button" class="player__forwardBackButton" viewBox="0 0 65 75" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M64.4131 37.5L0.663094 74.3061L0.663094 0.69392L64.4131 37.5Z" fill="#FF5500" />
+        </svg>
+
+
+        <svg id="stopButton" role="button" class="player__forwardBackButton hide" viewBox="0 0 65 75" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="21.9091" height="91" fill="#FF5500" stroke="#211E1E" stroke-width="4" />
+          <rect x="47.6494" y="2" width="21.9091" height="91" fill="#FF5500" stroke="#211E1E" stroke-width="4" />
+        </svg>
+
+        <svg id="nextButton" role="button" class="player__forwardBackButton" viewBox="0 0 117 85" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M85 42.5L21.25 79.3061L21.25 5.69392L85 42.5Z" fill="#FF5500" />
+          <path d="M116.413 42.5L52.6631 79.3061L52.6631 5.69392L116.413 42.5Z" fill="#FF5500" />
+        </svg>
+      </div>
+
+
+
+    </section>
+    {{!-- <button class="btn" id="updateStats">Update Stats</button> --}}
+
+  </section>
+  <section id="stats">
+    <h2 class="white">Stats</h2>
+    <ul class="unorderedList">
+      <li class="unorderedList__listItem">
+        <svg viewBox="-106 0 512 512" xmlns="http://www.w3.org/2000/svg" class="orangeSvg">
+          <path d="m150 323c5.519531 0 10-4.480469 10-10s-4.480469-10-10-10-10 4.480469-10 10 4.480469 10 10 10zm0 0" />
+          <path
+            d="m204.683594 247.238281c23.203125-14.097656 42.410156-33.941406 55.550781-57.390625 12.929687-23.074218 19.765625-49.183594 19.765625-75.507812v-56.058594c11.640625-4.128906 20-15.246094 20-28.28125v-20c0-5.523438-4.476562-10-10-10h-280c-5.523438 0-10 4.476562-10 10v20c0 13.035156 8.359375 24.152344 20 28.28125v56.058594c0 26.324218 6.835938 52.433594 19.765625 75.507812 13.140625 23.449219 32.351563 43.296875 55.554687 57.390625 2.964844 1.800781 4.738282 5.078125 4.738282 8.761719 0 3.6875-1.773438 6.960938-4.738282 8.765625-23.203124 14.09375-42.414062 33.9375-55.554687 57.386719-12.929687 23.074218-19.765625 49.183594-19.765625 75.507812v56.058594c-11.640625 4.128906-20 15.246094-20 28.28125v20c0 5.523438 4.476562 10 10 10h280c5.523438 0 10-4.476562 10-10v-20c0-13.035156-8.359375-24.152344-20-28.28125v-56.058594c0-26.324218-6.835938-52.433594-19.765625-75.507812-13.140625-23.449219-32.351563-43.296875-55.554687-57.390625-2.964844-1.800781-4.738282-5.078125-4.738282-8.761719 0-3.6875 1.773438-6.960938 4.742188-8.761719zm-184.683594-227.238281h260v10c0 5.515625-4.484375 10-10 10h-240c-5.515625 0-10-4.484375-10-10zm260 472h-260v-10c0-5.515625 4.484375-10 10-10h240c5.515625 0 10 4.484375 10 10zm-85.699219-210.144531c41.136719 24.992187 65.699219 68.285156 65.699219 115.804687v54.339844h-220v-54.339844c0-47.519531 24.5625-90.8125 65.699219-115.804687 8.992187-5.457031 14.359375-15.125 14.359375-25.855469s-5.367188-20.398438-14.359375-25.855469c-41.136719-24.992187-65.699219-68.285156-65.699219-115.804687v-54.339844h220v54.339844c0 47.519531-24.5625 90.8125-65.699219 115.804687-8.992187 5.457031-14.359375 15.125-14.359375 25.855469s5.367188 20.398438 14.359375 25.855469zm0 0" />
+          <path
+            d="m157.96875 346.460938c-1.886719-2.515626-4.847656-4-7.992188-4 0 0-.003906 0-.007812 0-3.140625 0-6.101562 1.476562-7.988281 3.984374-3.769531 5.015626-8.464844 9.277344-13.953125 12.679688-11.453125 6.898438-21.683594 11.210938-30.714844 15.019531-20.023438 8.445313-37.3125 15.738281-37.3125 43.457031v4.398438c0 5.523438 4.476562 10 10 10h160c5.523438 0 10-4.476562 10-10v-4.398438c0-27.703124-17.332031-35.027343-37.398438-43.511718-9.105468-3.851563-19.425781-8.210938-31.023437-15.191406-5.316406-3.300782-9.894531-7.488282-13.609375-12.4375zm61.636719 65.539062h-139.214844c1.523437-9.242188 7.824219-12.3125 24.695313-19.425781 9.183593-3.875 20.609374-8.691407 33.316406-16.347657.03125-.023437.066406-.042968.097656-.0625 4.148438-2.566406 7.980469-5.5 11.460938-8.769531 3.394531 3.191407 7.113281 6.042969 11.132812 8.535157.035156.019531.070312.042968.105469.0625 12.84375 7.734374 24.359375 12.605468 33.613281 16.519531 16.941406 7.160156 23.265625 10.246093 24.792969 19.488281zm0 0" />
+          <path
+            d="m240 114.398438v-18.398438c0-3.636719-1.972656-6.984375-5.152344-8.746094-3.179687-1.765625-7.0625-1.660156-10.148437.265625-22.421875 14.015625-48.25 21.421875-74.699219 21.421875-26.445312 0-52.277344-7.40625-74.699219-21.421875-3.085937-1.925781-6.96875-2.027343-10.148437-.265625-3.179688 1.761719-5.152344 5.109375-5.152344 8.746094v18.398438c0 17.296874 6.679688 35.914062 19.3125 53.835937 12.242188 17.367187 29.222656 32.878906 49.109375 44.867187 4.039063 2.511719 7.996094 6.074219 11.578125 10.378907v49.519531c0 5.523438 4.476562 10 10 10 5.519531 0 10-4.476562 10-10v-49.5c3.648438-4.355469 7.738281-8 11.972656-10.625 40.691406-24.542969 68.027344-64.109375 68.027344-98.476562zm-78.402344 81.375c-.03125.023437-.066406.039062-.097656.0625-3.988281 2.464843-7.851562 5.515624-11.464844 9.023437-3.503906-3.429687-7.226562-6.371094-11.128906-8.789063-.035156-.023437-.070312-.042968-.105469-.066406-35.171875-21.183594-58.800781-53.976562-58.800781-81.605468v-1.472657c21.761719 10.515625 45.652344 16.015625 70 16.015625s48.238281-5.5 70-16.015625v1.472657c0 27.195312-24.015625 60.65625-58.402344 81.375zm0 0" />
+        </svg>
+
+        <p class="unorderedList__listItem__p">
+          Release Date: {{ReleaseDate}}
+        </p>
+      </li>
+      <li class="unorderedList__listItem">
+        <svg class="orangeSvg" viewBox="0 0 135 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M89.7664 64.8604L61.734 44.4804C60.7053 43.7345 59.3396 43.6222 58.212 44.2018C57.0754 44.7769 56.3657 45.9451 56.3657 47.2076V87.9542C56.3657 89.2302 57.0754 90.3939 58.212 90.969C58.6927 91.2116 59.2183 91.3329 59.7484 91.3329C60.4402 91.3329 61.141 91.1128 61.734 90.677L89.7664 70.3149C90.6514 69.6634 91.168 68.657 91.168 67.5876C91.1725 66.5003 90.6424 65.4984 89.7664 64.8604Z" />
+          <path
+            d="M67.5022 0C30.2156 0 0 30.2197 0 67.5112C0 104.789 30.2156 135 67.5022 135C104.78 135 135 104.785 135 67.5112C135.005 30.2197 104.78 0 67.5022 0ZM67.5022 123.736C36.451 123.736 11.2758 98.5711 11.2758 67.5112C11.2758 36.4649 36.451 11.2683 67.5022 11.2683C98.549 11.2683 123.72 36.4604 123.72 67.5112C123.724 98.5711 98.549 123.736 67.5022 123.736Z" />
+        </svg>
+        <p class="unorderedList__listItem__p">Popularity: {{Popularity}}</p>
+
+      </li>
+      <li class="unorderedList__listItem">
+        <svg viewBox="0 0 125 125" class="orangeSvg" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M44.6428 45.3125V106.235L44.642 106.235C44.7084 111.807 40.4725 118.089 31.7001 122.036C19.5166 127.519 6.70511 124.843 2.0157 118.513C-2.6737 112.182 0.7592 102.196 12.9426 96.7135C21.1363 93.0264 29.614 93.0291 35.7142 95.3519V46.875V15.625L125 0V7.8125V31.25V98.4411L124.999 98.4413C125.056 104.008 120.82 110.281 112.057 114.224C99.8738 119.706 87.0623 117.031 82.3729 110.7C77.6835 104.369 81.1164 94.3836 93.2998 88.901C101.493 85.2139 109.971 85.2166 116.071 87.5394V32.8125L44.6428 45.3125Z" />
+        </svg>
+        <p class="unorderedList__listItem__p"> Song is tagged with: {{Genres}}
+        </p>
+      </li>
+      <li class="unorderedList__listItem">
+        <svg viewBox="0 0 512 512" class="orangeSvg">
+          <g>
+            <g>
+              <path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148
+			C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962
+			c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216
+			h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40
+			c59.551,0,108,48.448,108,108S315.551,256,256,256z" />
+            </g>
+        </svg>
+        <p class="unorderedList__listItem__p">People contributed to this List: {{PeopleContribution}}</p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="recommendedTitel white">Songs you might like</h2>
+    <div class="coverImages">
+
+      {{!-- For Handlebars: --}}
+      {{!-- {{#each recommendedTrack }}
+      <div class="coverImages__Track">
+        <img class="coverImages__Track__Img borderOrange" src="{{src}}" alt="Cover of {{name}}">
+        <h2>{{name}}</h2>
+        <p>{{artist}}</p>
+      </div>
+
+      {{/each}} --}}
+      <div class="coverImages__Track">
+        <img class="coverImages__Track__Img borderOrange"
+          src="https://i.scdn.co/image/d364650648016d622e5550c64152401d6c99fcff" alt="Cover of {{Track}}">
+        <h2>Titel</h2>
+        <p>Artist</p>
+      </div>
+
+      <div class="coverImages__Track">
+        <img class="coverImages__Track__Img borderOrange"
+          src="https://i.scdn.co/image/b288c360a701c0848b09e705dd473ff8820bd720" alt="Cover of {{currentTrack}}">
+        <h2>Titel</h2>
+        <p>Artist</p>
+      </div>
+
+      <div class="coverImages__Track">
+        <img class="coverImages__Track__Img borderOrange"
+          src="https://i.scdn.co/image/eddd55c8766187b64f78695ec241ba1a58ea3adf" alt="Cover of {{nextTrack}}">
+
+        <h2>Titel</h2>
+        <p>Artist</p>
+      </div>
+    </div>
+
+  </section>
+  {{/unless}}
+</div>

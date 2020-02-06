@@ -1,0 +1,19 @@
+.input{
+    border: 2px solid $base-white;
+    border-color: transparent transparent $base-white transparent;
+    background: transparent;
+    font-size: 3rem;
+    color: $base-white;
+    font-family: inherit;
+    color: $base-orange;
+  }
+  
+  .input::placeholder{
+    font-style: italic;
+    color: $base-orange;
+    opacity: 0.4;
+  }
+  
+  .formlabel{
+    display: none;
+  }

@@ -1,0 +1,33 @@
+{{> ../components/Hamburger/Hamburger }}
+<div class="search-page">
+  <h1>{{ heading }}</h1>
+  <div class="forms">
+    <label for="searchInput" class="formlabel">Search</label>
+    <input id="searchInput" class="input" type="text" placeholder="Songname">
+    <div class="submitBtns">
+      <input type="submit" class="btn" value="Search" id="searchButton">
+    </div>
+  </div>
+  <section class="playlist">
+    <ul>
+      {{#each tracks}}
+      <li>
+        <a href="https://open.spotify.com/album/{{track.album.id}}">
+        <div class="playlist__item">
+          <div class="playlist__item--imageContainer">
+            <img src="{{ track.album.images.[0].url }}" alt="Cover of {{ track.name}}">
+            </div>
+            
+          <div class="playlist__item--flex">
+            <h4>{{track.name}}</h4>
+            <p>{{track.artists.[0].name}}</p>
+            <p>{{track.album.name}}</p>
+          </div>
+        
+        </div>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+</div>

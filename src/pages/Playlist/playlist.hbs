@@ -1,0 +1,28 @@
+{{> ../components/Hamburger/Hamburger }}
+<div class="playlist-page">
+  <h1>{{ heading }}</h1>
+  <h3>PlaylistLink: <a href="{{playlistLink}}">{{playlistLink}}</a></h3>
+
+  <section class="playlist">
+    <ul>
+      {{#each tracks}}
+      <li>
+        <a href="https://open.spotify.com/album/{{track.album.id}}">
+        <div class="playlist__item">
+          <div class="playlist__item--imageContainer">
+            <img src="{{ track.album.images.[0].url }}" alt="Cover of {{ track.name}}">
+            </div>
+            
+          <div class="playlist__item--flex">
+            <h4>{{track.name}}</h4>
+            <p>{{track.artists.[0].name}}</p>
+            <p>{{track.album.name}}</p>
+          </div>
+        
+        </div>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+</div>

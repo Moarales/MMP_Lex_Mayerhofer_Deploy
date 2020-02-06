@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>{{ htmlWebpackPlugin.options.title }}</title>
+</head>
+
+<body>
+  {{#unless login}}
+  {{> ../components/Header/Header }}
+  {{/unless}}
+
+  <main id="app">
+    <h2>Hello from index</h2>
+  </main>
+  {{> ../components/Footer/Footer }}
+</body>
+
+</html>

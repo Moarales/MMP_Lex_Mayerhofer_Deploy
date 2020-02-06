@@ -1,0 +1,57 @@
+
+   .reversed{
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  .playlist{
+    display: flex;
+    justify-content: center;
+
+    li{
+      background: $base-lightBlack;
+      border: 10px solid $base-lightBlack;
+      margin: 4vh 0;
+      border-radius: 12px;
+
+      *{
+        border-radius: 12px;
+      }
+      
+    }
+    li:hover{
+      -webkit-box-shadow: 0px 14px 15px 7px rgba(0,0,0,0.67);
+      -moz-box-shadow: 0px 14px 15px 7px rgba(0,0,0,0.67);
+      box-shadow: 0px 14px 15px 7px rgba(0,0,0,0.67);
+    }
+    &__item{
+      width: 70vw;
+      height: 20vh;
+      display: grid;
+      grid-template-columns: 20vh 2vw auto;
+      
+      
+      &--imageContainer img{
+        width: 100%;
+      }
+      &--flex{
+        padding-left: 2vw;
+        text-align: left;
+        grid-column-start: 3;
+        background-color: $base-black;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        //border: 2px solid $base-orange;
+       // margin: 2vh 0;
+       height: 20vh;
+       h4{
+         margin-bottom: 3vh;
+         font-size: 1.5rem;
+       }
+       p{
+         font-size: 1.25rem;
+         margin: 1vh 0;
+       }
+      }
+    }
+  }
